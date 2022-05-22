@@ -24,7 +24,15 @@ RCT_EXPORT_MODULE(SplashScreen)
 
 + (void)show {
     if (!loadingView) {
-        loadingView = [[[NSBundle mainBundle] loadNibNamed:splash owner:self options:nil] objectAtIndex:0];
+        // load from storyboard
+        UIStoryboard *launchSb = [UIStoryboard storyboardWithName:splashScreen bundle:nil];
+        UIViewController *launchSbVC = [launchSb instantiateInitialViewController];
+        loadingView = launchSbVC.view;
+
+        // load from nib: not working
+        //NSArray *launchNib = [[NSBundle mainBundle] loadNibNamed:splashScreen owner:self options:nil];
+        //loadingView = [launchNib objectAtIndex:0];
+
         CGRect frame = parentView.frame;
         frame.origin = CGPointMake(0, 0);
         loadingView.frame = frame;
