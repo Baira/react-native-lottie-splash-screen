@@ -12,5 +12,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "7.0"
   s.source       = { :git => "https://github.com/HwangTaehyun/react-native-lottie-splash-screen", :tag => "v#{s.version}" }
   s.source_files  = "ios/*.{h,m}"
-  s.dependency "React"
+  s.dependency "React-Core"
 end
